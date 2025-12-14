@@ -2,37 +2,37 @@ print("Welcome to my simple calculator!")
 
 while True:
     try:
-        Firstnum = float(input("Please enter the first number: "))
+        a = float(input("Please enter the first number: "))
         break
     except ValueError:
         print("Invalid input. Tip: use numbers only")
 
 while True:
-    Operation = input("Select an operation (+ - * /): ")
-    if Operation in "+-*/":
+    c = input("Select an operation (+ - * /): ").strip()
+    if c in "+-*/":
         break
     else:
         print("Invalid operation. Tip: choose one of + - * /")
 
 while True:
     try:
-        Secondnum = float(input("Great! Now enter the second number: "))
+        b = float(input("Great! Now enter the second number: "))
         break
     except ValueError:
         print("Invalid input. Tip: use numbers only")
 
+def calculate(x, y, op):
+    if op == "+":
+        return x + y
+    if op == "-":
+        return x - y
+    if op == "*":
+        return x * y
+    if op == "/":
+        if y == 0:
+            return "Error: division by zero"
+        return x / y
+    return "Invalid operator"
 
-def calculate(Firstnum, Secondnum, Operation):
-    if Operation == "+":
-        return Firstnum + Secondnum
-    elif Operation == "-":
-        return Firstnum - Secondnum
-    elif Operation == "*":
-        return Firstnum * Secondnum
-    elif Operation == "/":
-        return Firstnum / Secondnum
-    else:
-        return "Invalid operator"
-
-result = calculate(Firstnum, Secondnum, Operation)
+result = calculate(a, b, c)
 print("Result:", result)
